@@ -32,7 +32,6 @@ function draw() {
     pY = cY;
     yNoise += increment;
   }
-  console.log(mouseY % canvasHeight);
 
 }
 
