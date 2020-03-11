@@ -35,13 +35,19 @@ function setup() {
   let canvasHeight = 1080 / 2;
   createCanvas(canvasWidth, canvasHeight);
   background(255, 255, 255);
-  frameRate(60);
+  frameRate(30);
   w = new Walker(10, 50);
 }
 
 function draw() {
   w.step();
   w.display();
+  w.step();
+  w.display();
+  if (frameCount % 10 == 0) {
+    background(255, 255, 255, 20);
+
+  }
 }
 
 function mouseClicked() {
