@@ -15,7 +15,6 @@ class Walker {
   }
 
   step() {
-
     var choice = int(random(4));
     if (choice == 0) {
       this.x += this.size;
@@ -38,11 +37,14 @@ function setup() {
   background(255, 255, 255);
   frameRate(30);
   w = new Walker(10, 50);
+  w2 = new Walker(5, 100);
 }
 
 function draw() {
   w.step();
   w.display();
+  w2.step();
+  w2.display();
   if (frameCount % 10 == 0) {
     background(255, 255, 255, 30);
 
