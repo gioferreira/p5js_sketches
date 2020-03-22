@@ -4,12 +4,17 @@ class Walker {
   constructor(size = 10, transp = 255) {
     this.x = width / 2;
     this.y = height / 2;
+    // this.x = random(0, width);
+    // this.y = random(0, height);
     this.size = size;
     this.alpha = transp;
+    this.r = random(80, 200);
+    this.g = random(20, 120);
+    this.b = random(20, 255);
   }
 
   display() {
-    stroke(0, this.alpha);
+    stroke(this.r, this.g, this.b, this.alpha);
     strokeWeight(this.size);
     point(this.x, this.y);
   }
@@ -30,25 +35,32 @@ class Walker {
   }
 }
 
+function makeWalkers(n = 10, size = 10, transp = 25) {
+  var Walkers = new Array(n)
+  for (var i = 0; i < n; ++i) {
+    Walkers[i] = new Walker(size, transp)
+  }
+  return Walkers
+}
+
 function setup() {
-  let canvasWidth = 1920 / 2;
-  let canvasHeight = 1080 / 2;
+  let canvasWidth = screen.width;
+  let canvasHeight = screen.height - 100;
   createCanvas(canvasWidth, canvasHeight);
-  background(255, 255, 255);
+  background(0, 0, 0);
   frameRate(30);
-  w = new Walker(10, 50);
-  w2 = new Walker(5, 100);
+  walkers = makeWalkers(2000, 4, 150);
 }
 
 function draw() {
-  w.step();
-  w.display();
-  w2.step();
-  w2.display();
-  if (frameCount % 10 == 0) {
-    background(255, 255, 255, 30);
-
+  if (frameCount % 1 == 0) {
+    background(0, 0, 0, 40);
   }
+  for (var i = 0; i < walkers.length; ++i) {
+    walkers[i].step();
+    walkers[i].display();
+  }
+
 }
 
 function mouseClicked() {
