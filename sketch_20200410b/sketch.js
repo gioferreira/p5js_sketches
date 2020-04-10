@@ -83,7 +83,7 @@ function setup() {
   createCanvas(canvasWidth, canvasHeight);
   background(0, 0, 0);
   frameRate(60);
-  walkers = makeWalkers(1000, 6, 255);
+  walkers = makeWalkers(100, 22, 255);
 }
 
 function draw() {
