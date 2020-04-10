@@ -60,8 +60,8 @@ class Walker {
     this.x += this.stepX;
     this.y += this.stepY;
 
-    this.x = constrain(this.x, this.size, width - this.size);
-    this.y = constrain(this.y, this.size, height - this.size);
+    this.x = constrain(this.x, this.size, width - (this.size * 2));
+    this.y = constrain(this.y, this.size, height - (this.size * 2));
   }
 }
 
@@ -76,8 +76,8 @@ function makeWalkers(n = 10, size = 10, transp = 25) {
 function setup() {
   // let canvasWidth = 1920 / 2;
   // let canvasHeight = 1080 / 2;
-  let canvasWidth = screen.width;
-  let canvasHeight = screen.height - 100;
+  let canvasWidth = window.innerWidth;
+  let canvasHeight = window.innerHeight;
   createCanvas(canvasWidth, canvasHeight);
   background(0, 0, 0);
   frameRate(60);
